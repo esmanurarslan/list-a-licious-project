@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="categories.css">
+</head>
+<body>
+    <header class="header">
+        EcoShop
+    </header>
+    <div class="myProfileIcon">
+        <img src="profile.png" alt="Profil">
+        <ul>
+          <li><a href="#profileSettings">Profil Ayarları</a></li>
+          <li><a href="mainPage.html">Oturumdan Çık</a></li>
+        </ul>
+      </div>
+    <nav >
+       <ul id="myNavigator">
+        <li><a href="#category1" >Kategoriler</a>
+            <ul>
+                <li><a href="#subcategory1"></a>Fırın</li>
+                <li><a href="#subcategory2"></a>Manav</li>
+                <li><a href="#subcategory3"></a>Et,Tavuk,Balık</li>
+                <li><a href="#subcategory4"></a>Temel Gıda</li>
+                <li><a href="#subcategory5"></a>Donmuş Gıda</li>
+                <li><a href="#subcategory6"></a>Atıştırmalık</li>
+                <li><a href="#subcategory7"></a>İçecek</li>
+                <li><a href="#subcategory8"></a>Kişisel Bakım</li>
+                <li><a href="#subcategory9"></a>Temizlik</li>
+            </ul>
+        </li>
+    
+        <li><a href="#category2">Marketler</a>
+            <ul>
+                <li><a href="#subcategory1"></a>Migros</li>
+                <li><a href="#subcategory2"></a>Carrefour</li>
+                <li><a href="#subcategory3"></a>Şok</li>
+                <li><a href="#subcategory4"></a>A101</li>
+                <li><a href="#subcategory5"></a>Bim</li>
+                <li><a href="#subcategory6"></a>Ekomini</li>
+            </ul>
+        </li>
+        <li><a href="#category3">Listelerim</a></li>
+        <li><a href="#category4">Diğer Listeler</a></li>
+        <li><a href="#category5">Tarifler</a></li>
+        <li><a href="#category6">Menüler</a></li>
+        <li><a href="#category7">Profil Ayarları</a></li>
+       </ul>
+     
+ 
+    </nav>
+
+   <div class="container">
+    
+        <div class='category' id="category1">
+            <h2>Kategori 1</h2>
+            <p>Kategori 1 içeriği burada.</p>
+        </div>
+
+        <div class='category' id="category2">
+            <h2>Kategori 2</h2>
+            <p>Kategori 2 içeriği burada.</p>
+        </div>
+
+        <div class='category' id="category3">
+            <h2>Kategori 3</h2>
+            <p>Kategori 3 içeriği burada.</p>
+        </div>
+   </div>
+ 
+  
+</body>
+<script>
+    var navLinks = document.querySelectorAll(".myNavigator li a");
+  
+    navLinks.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            var target = event.target.getAttribute("href");
+            document.querySelector(target).scrollIntoView({behavior: "smooth"});
+        });
+    });
+    
+    var profileIcon = document.querySelector(".myProfileIcon img");
+
+profileIcon.addEventListener("click", function() {
+    window.location.href = "https://www.example.com/profile"; // Burada profil sayfasının URL'sini belirtin
+});
+
+
+
+    </script>
+  
+</html>
+
+
+ 
+  

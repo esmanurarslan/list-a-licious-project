@@ -1,0 +1,29 @@
+body{
+    position: relative;
+    background: radial-gradient(100% 197.75% at 100% 100%,
+     rgba(255, 31, 0, 0.2) 0%, rgba(250, 253, 87, 0.2) 100%), #E9E7B8;
+}
+.header{
+    font-size: 150px;
+    text-align: center;
+    margin: 7%;
+}
+
+.container{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    background-color: aqua;
+    width: 80%;
+    height:600px;
+}
+
+.box{
+    margin: 5%;
+    background-color:wheat;
+    width:30%;
+    height: 60%;
+    padding:5%;
+    float: left;
+
+}
