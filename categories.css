@@ -1,20 +1,19 @@
 body{
     position: relative;
-    background: radial-gradient(100% 197.75% at 100% 100%,
+    background: radial-gradient(
      rgba(255, 31, 0, 0.2) 0%, rgba(250, 253, 87, 0.2) 100%), #E9E7B8;
 }
 .header{
-    width: 100%;
-    font-size: 50px;
+    font-size: 150px;
     text-align: center;
+    margin: 7%;
 }
 #myNavigator {
 
     
-    list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 15%;
+    width: 20%;
     height: 100%;
     background-color: #f1f1f1;
     float: left;
@@ -24,10 +23,11 @@ body{
 
 #myNavigator li a {
     display:block;
-    color: #000;
+    color: #413737;;
     padding: 8px 16px;
-    text-decoration: none;
-    height: 100px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-size:30px ;
 }
 
 #myNavigator li a:hover {
@@ -44,6 +44,7 @@ body{
 #myNavigator li:hover ul {
     display: block;
 }
+
 
   #myContent {
       margin-left: 220px;
