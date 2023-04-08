@@ -7,41 +7,81 @@
     <title>EcoShop</title>
     <link rel="stylesheet" href="mainPage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
 </head>
 <body >
-    <header>
-       <h1>EcoShop</h1> 
-    </header>
+  <header>
+    <h1>EcoShop</h1> 
+  </header>
 
-   <div class="container"> 
+  <div class="container"> 
+    <!-- login -->
     <div class="box">
-      <div class="login-box">
-      <h4 class="login-text">Log In</h4> <br>
-      
-      <input placeholder="email or username"><br>
-      <input placeholder="password"><br>
 
-      <a href="categories.html"><button id="btn-login">Log in</button</a>><br>
-      <button id="btn-forgot"><em><u>Forgot your password?</u></em></button>
-    
+      <div class="login-box login">
+        <h2 class="login-text">Log In</h2> <br>
+
+        <form action="#">
+
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+            <input type="email" required>
+            <label>Email</label>
+          </div>
+
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+            <input type="password" required>
+            <label>Password</label>
+          </div>
+
+          <div class="remember_forgot">
+            <label><input type="checkbox">Remember me!</label>
+            <a href="#">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="btn">Log In</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- singUp -->
+    <div class="box">
+      <div class="singUp-box sing">
+
+        <h2 class="signUp-text">Sign Up</h2><br>
+        <form action="#">
+
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+            <input type="email" required>
+            <label>Email</label>
+          </div>
+
+          <div class="input-box">
+            <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+            <input type="text" required>
+            <label>Username</label>
+          </div>
+
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+            <input type="password" required>
+            <label>Password</label>
+          </div>
+          
+          <button type="submit" class="btn">Sign up</button>
+        </form>
+      </div>
     </div>
   </div>
-
-    <div class="box">
-      <div class="signUp-box">
-      <h4 class="signUp-text">Sign Up</h4><br>
-      <input placeholder="email"><br>
-      <input placeholder="create an username "><br>
-      <input placeholder="create a password"><br>
-
-      <button id="btn-login">Sign Up</button>
-    </div></div>
     
     <footer>
 
 
     </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
