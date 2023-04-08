@@ -1,10 +1,12 @@
 body{
     position: relative;
+    font-family: 'Inter';
     background: radial-gradient(
      rgba(255, 31, 0, 0.2) 0%, rgba(250, 253, 87, 0.2) 100%), #E9E7B8;
 }
-.header{
-    font-size: 150px;
+header{
+    font-family: 'Inter';
+    font-size: 200px;
     text-align: center;
     margin: 7%;
 }
@@ -55,6 +57,7 @@ body{
   }
 
   .category {
+    font-family: 'Inter';
     margin: 20px;
     padding: 5px;
     background-color: bisque;
@@ -66,6 +69,7 @@ body{
   .container{
 
     padding: 10;
+    
   }
 
   .myProfileIcon {
@@ -84,6 +88,7 @@ body{
     margin: 0;
     padding: 0;
     display: none;
+    
 }
 
 .myProfileIcon li a {
@@ -91,6 +96,7 @@ body{
     color: #000;
     padding: 8px 16px;
     text-decoration: none;
+    
 }
 
 .myProfileIcon:hover ul {

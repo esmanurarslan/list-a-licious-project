@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listelerim | EcoShop</title>
-    <link rel="stylesheet" href="default.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listelerim | EcoShop</title>
+  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="myList.css">
+  
 </head>
 <body>
+  <h1>Listem</h1>
+  <form id="add-item-form">
+    <label for="item">Listeye ürün ekle:</label>
+    <input type="text" id="item" name="item">
+    <button type="submit">Ekle</button>
+  </form>
+  <ul id="shopping-list">
     
+  </ul>
+
+  <script>
+    // Get the shopping list and the form
+    const shoppingList = document.getElementById('shopping-list');
+    const addItemForm = document.getElementById('add-item-form');
+    
+    // Add a listener to the form submission
+    addItemForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent default form submission
+      const newItem = document.createElement('li'); // create new item
+      const newItemText = document.createTextNode(item.value); // get item text
+      newItem.appendChild(newItemText); // add text to new item
+      shoppingList.appendChild(newItem); // add new item to the list
+      item.value = ''; // clear the input field
+    });
+  </script>
+  
 </body>
 </html>

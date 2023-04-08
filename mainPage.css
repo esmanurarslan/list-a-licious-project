@@ -3,18 +3,22 @@ body{
     background: radial-gradient(
      rgba(255, 31, 0, 0.2) 0%, rgba(250, 253, 87, 0.2) 100%), #E9E7B8;
 }
-.header{
-    font-size: 150px;
-    text-align: center;
-    margin: 7%;
-}
 
+header{
+    font-family: 'Inter';
+    font-size: 100px;
+    text-align: center;
+    margin-top: 7%;
+}
 .container{
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 5%;
+    margin-top: 10%;
     background-color: rgb(235, 203, 144);
     width: 80%;
+    font-family: 'Inter', sans-serif;
+    font-size: 50px;
+    
   
 }
 
@@ -22,7 +26,7 @@ body{
     margin: 5%;
     background-color:wheat;
     width:30%;
-    height: 60%;
+    height: 600px;
     padding:5%;
     float: left;
 
