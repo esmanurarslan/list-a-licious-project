@@ -30,6 +30,7 @@ header{
     font-family: 'Inter';
     font-style: italic;
     font-size:30px ;
+    display: inline-block;
 }
 
 #myNavigator li a:hover {
