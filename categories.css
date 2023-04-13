@@ -24,13 +24,19 @@ header{
 }
 
 #myNavigator li a {
-    display:block;
-    color: #413737;;
+    
+    color:#413737;
     padding: 8px 16px;
     font-family: 'Inter';
     font-style: italic;
     font-size:30px ;
     display: inline-block;
+    text-align: center;
+}
+
+#myNavigator li p{
+    display: inline-block;
+   
 }
 
 #myNavigator li a:hover {
