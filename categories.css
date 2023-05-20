@@ -68,7 +68,7 @@ header{
     margin: 20px;
     padding: 5px;
     background-color: bisque;
-    float: left;
+    float:inline-start;
     width: 15%;
 
   }
@@ -108,4 +108,12 @@ header{
 
 .myProfileIcon:hover ul {
     display: block;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+   margin-top: 5%;
+   padding-top: 5%;
+   font-family: 'Inter';
 }
