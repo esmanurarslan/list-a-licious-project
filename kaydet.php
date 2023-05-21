@@ -24,7 +24,7 @@ try {
     // Sorguyu çalıştırma
     $stmt->execute();
   
-    echo "Yeni kayıt başarıyla eklendi";
+    echo '<p>Signup successful. You can now <a href="mainPage.html">log in</a>.</p>';
   } catch(PDOException $e) {
     echo "Hata: " . $e->getMessage();
   }

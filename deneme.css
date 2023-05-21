@@ -6,7 +6,7 @@
   }
   
   body {
-    width: 100%;
+    width: 100vw;
     text-align: center;
     padding-top: 10px;
     font-family: 'Inter';
@@ -15,9 +15,8 @@
      rgba(255, 31, 0, 0.2) 0%, rgba(250, 253, 87, 0.2) 100%), #E9E7B8;
   }
   
-  h1 {
+  header{
     font-family: 'Inter';
-    font-weight: lighter;
     font-size: 200px;
     text-align: center;
     margin: 7%;
@@ -136,11 +135,7 @@
 .myProfileIcon:hover ul {
     display: block;
 }
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-   margin-top: 5%;
-   padding-top: 5%;
-   font-family: 'Inter';
-}
+  footer {
+    color: gray;
+  }
+  

@@ -12,10 +12,11 @@
 </head>
 <body>
   <h1><a href="categories.html" style="text-decoration: none;">EcoShop</a> | Listelerim</h1>
-  <form id="add-item-form">
+  <form id="add-item-form" action="addList.php" method="POST">
     <label for="item">Listeye ürün ekle:</label>
     <input type="text" id="item" name="item">
     <button type="submit">Ekle</button>
+    <button type="submit">Kaydet</button>
     
   </form>
   <ul id="shopping-list">
@@ -49,16 +50,11 @@
     newItem.appendChild(deleteButton); // add delete button to new item
 
       item.value = ''; // clear the input field
+
+  
     });
-/*listeleri data base e eklemek için
 
-Oluşturulan listenin kullanıcının oturumunu kapatsa bile veri tabanında kayıtlı olmasını ve kullanıcının bu listeye istediği zaman ulaşabilmesini sağlamak için bir sunucu tarafı programlama dili (örneğin PHP, Node.js, Ruby on Rails vb.) ve bir veritabanı (örneğin MySQL, MongoDB, PostgreSQL vb.) kullanabilirsiniz.
-
-Öncelikle bir veritabanı oluşturup bu veritabanına bir tablo ekleyebilirsiniz. Bu tabloda her bir satır bir kullanıcıya ait olacak şekilde tasarlanabilir. Örneğin `users` adında bir tablo oluşturup bu tabloda `id`, `username`, `password` ve `shopping_list` gibi sütunlar ekleyebilirsiniz. `shopping_list` sütunu bir dizi olarak tasarlanabilir ve bu dizi içerisinde kullanıcının eklediği ürünler saklanabilir.
-
-Daha sonra sunucu tarafı programlama dilini kullanarak kullanıcının oturum açma, oturum kapatma ve kayıt olma gibi işlemleri gerçekleştirebilirsiniz. Kullanıcı oturum açtığında veritabanından ilgili kullanıcının `shopping_list` sütunundaki verileri çekip ekranda gösterebilirsiniz. Kullanıcı yeni bir ürün eklediğinde bu ürünü hem ekranda gösterip hem de veritabanındaki ilgili satırdaki `shopping_list` sütununa ekleyebilirsiniz.
-
-Bu sayede kullanıcı oturumunu kapatsa bile eklediği ürünler veritabanında saklanacak ve kullanıcı tekrar oturum açtığında bu ürünlere ulaşabilecektir. */
+ 
     
   </script>
   

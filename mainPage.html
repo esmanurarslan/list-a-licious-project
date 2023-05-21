@@ -24,7 +24,7 @@
 
 <body >
   <header>
-    <h1>EcoShop</h1> 
+    <h1 style="font-weight: lighter;">EcoShop</h1> 
   </header>
 
   <div class="container"> 
@@ -34,17 +34,17 @@
       <div class="login-box login">
         <h2 class="login-text">Log In</h2> <br>
 
-        <form action="#" >
+        <form method="POST" action="login.php" >
 
           <div class="input-box">
             <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-            <input type="email" required>
+            <input type="email" id="eposta1" name="eposta1" required>
             <label>Email</label>
           </div>
 
           <div class="input-box">
             <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-            <input type="password" required>
+            <input type="password" id="sifre1" name="sifre1" required>
             <label>Password</label>
           </div>
 
