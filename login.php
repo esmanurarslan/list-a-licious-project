@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Kullanıcı bilgilerini oturum verisine kaydet
         $_SESSION['user'] = $user;
+        
         header("Location: deneme.html");
         exit;
     } else {
