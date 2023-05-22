@@ -9,25 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
-    
-    <h1 style="font-size:200px;font-family:'Inter';font-weight:lighter;"><a href="deneme.html" style="text-decoration: none;">EcoShop</a>| Profil Ayarları </h1> 
-    
-    <body>
-      <?php 
+
+
+    <header>
+        <h1><a href="categories.html" style="text-decoration: none;">EcoShop</a>| Profil Ayarları </h1> 
+    </header>
+    <?php 
         session_start();
         if(empty($_SESSION['user'])){
           echo 'kullanıcı bulunamadı';
           exit();
-
+        
         }
         $user = $_SESSION['user'];
+    ?>
+      
+      <div class="container"> 
+        <h2>Kullanıcı Bilgileri</h2>
+        <form method="POST" action="parolaDegis.php">
 
-      ?>
-
-      <div class="container">  
-        <h1>Profil Ayarları</h1>
-        <form method="POST" action="login.php">
           <div class="input-box">
             <label for="username">Kullanıcı Adı:</label>
             <input type="text" id="username" name="username" value="<?php echo $user['username']; ?>" required>
@@ -36,25 +38,50 @@
             <label for="email">E-Mail:</label>
             <input type="text" id="email" name="email" value="<?php echo $user['email']; ?>" required>
           </div>  
-          <div class="input-box">
-            <label for="password">Şifre:</label>
-            <input type="password" id="password" name="password" required>
-          </div>  
-          <div class="input-box">
-            <label for="new_password">Yeni Şifre:</label>
-            <input type="password" id="new_password" name="new_password">
-          </div>  
-          <div class="buton"> 
-            <input type="submit" value="Değişikliği Kaydet">
-          </div> 
+
+          <div class="change-password">
+            <h2>Parolayı Güncelle</h2>
+            <div class="input-box">
+              
+              <input type="password" id="password" name="password" required>
+              <label for="password">Şifre:</label>
+            </div>  
+            <div class="input-box">
+              
+              <input type="password" id="new_password" name="new_password">
+              <label for="new_password">Yeni Şifre:</label>
+            </div>  
+            <div class="input-box">
+              
+              <input type="password" id="new_password_again" name="new_password_again">
+              <label for="new_password_again">Yeni Şifre Tekrar:</label>
+            </div> 
+            <div class="buton"> 
+              <input type="submit" value="Değişikliği Kaydet">
+            </div> 
+
+
+          </div>
+
         </form>
+
+
+
         <div class="buton"> 
-        <form method="POST" action="delete_account.php" onsubmit="return confirm('Hesabınızı silmek istediğinize emin misiniz?');">
-            <input type="submit" value="Hesabı Sil">
-        </form>
+
+
+          <form method="POST" action="delete_account.php" onsubmit="return confirm('Hesabınızı silmek istediğinize emin misiniz?');">
+              <input type="submit" name="delete_account" value="Hesabı Sil">
+          </form>
+
+
         </div>
+
+
       </div>
-  </body>
+
+
+
 
     <div class="footer">
       <hr >
