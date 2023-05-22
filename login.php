@@ -26,6 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($count > 0) {
         // Eşleşme varsa yönlendirme
+        session_start();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Kullanıcı bilgilerini oturum verisine kaydet
+        $_SESSION['user'] = $user;
+        
         header("Location: deneme.html");
         exit;
     } else {
