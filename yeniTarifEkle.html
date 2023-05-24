@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tarif Ekle</title>
+  <style>
+    label{
+        display: block;
+    }
+
+    .container{
+      margin-left: 50px;
+      background-color: peru;
+      opacity:0.5;
+      width: 40%;
+      font-size: 25px;
+      padding: 10px;
+    }
+    textarea{
+      width: 99%;
+      font-size: 18px;
+    }
+    input,select,button{
+      height: 40px;
+      width: 200px;
+      font-size: 25px;
+      text-align: center;
+    }
+
+
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="default.css">
+</head>
+<body>
+    <h1 style="font-size: 150px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Yeni Tarif Ekle</h1>
+    <br>
+  
+  <div class="container">
+    <form style="padding-left: 0px; " id="recipe-form">
+    
+      <label for="category">Kategori:</label>
+      <select id="category" name="category">
+        <option value="Aperatifler">Aperatifler</option>
+        <option value="Çorbalar">Çorbalar</option>
+        <option value="Et yemekleri">Et yemekleri</option>
+        <option value="Hamur işi tarifleri">Hamur işi tarifleri</option>
+        <option value="Salata ve Mezeler">Salata ve Mezeler</option>
+        <option value="Tatlılar">Tatlılar</option>
+  
+      </select>
+  
+      <label for="ingredients">Malzemeler:</label>
+      <textarea id="ingredients" name="ingredients" rows="20" cols="50"></textarea>
+  
+      <label for="servings">Kişi Sayısı:</label>
+      <input style="" type="number" id="servings" name="servings" min="1">
+  
+      <label for="duration">Yapılış Süresi:</label>
+      <input type="text" id="duration" name="duration">
+  
+      <label for="steps">Yapılış Aşamaları:</label>
+      <textarea id="steps" name="steps" rows="20" cols="50"></textarea><br>
+  
+      <button style="margin: 5px;" type="submit">Tarifi Ekle</button>
+    </form>
+  
+
+  </div>
+  
+  <script>
+    const recipeForm = document.getElementById('recipe-form');
+
+    recipeForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Formun varsayılan gönderimini engelle
+
+      const categoryInput = document.getElementById('category');
+      const ingredientsInput = document.getElementById('ingredients');
+      const servingsInput = document.getElementById('servings');
+      const durationInput = document.getElementById('duration');
+      const stepsInput = document.getElementById('steps');
+
+      const recipe = {
+        category: categoryInput.value,
+        ingredients: ingredientsInput.value,
+        servings: servingsInput.value,
+        duration: durationInput.value,
+        steps: stepsInput.value
+      };
+
+      console.log(recipe); // Tarifi konsola yazdır, burada veriyi veritabanına kaydedebilirsin
+
+      recipeForm.reset(); // Formu sıfırla
+    });
+  </script>
+</body>
+</html>
