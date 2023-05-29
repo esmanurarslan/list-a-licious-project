@@ -41,12 +41,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="POST" >
         
             <label for="title" class="form-label">Başlık:</label>
-            <input type="text" class="form-control" id="title" name="title" required>
+            <input type="text" class="form-control" id="title" name="title" required><br>
+
+            <label for="ingredients" class="form-label">Malzemeler:</label>
+            <ul id="ingredientsList"></ul>
+            <input type="text" class="form-control" id="ingredientInput" placeholder="Malzeme girin">
+            <button type="button" class="btn btn-primary" onclick="addIngredient()">Malzeme Ekle</button>
             
-            <label for="text" class="form-label">Metin:</label>
+            <br>
+            
+            <label for="text" class="form-label">Yapılış:</label>
             <textarea id="text" class="form-control" name="text" required></textarea>
             
-            <label for="category" class="form-control">Kategori:</label>
+
             <select id="category" name="category"  required>
                 <option value=" ">Kategori Seçin</option>
                 <option value='1'>Aperatifler</option>
@@ -76,6 +83,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result) {
         echo 'Kayıt başarıyla eklendi.';
+        // Eklenen kaydın ID'sini alın
+        $recepiesId = mysqli_insert_id($conn);
+
+        // Malzemeleri alın
+        $ingredients = explode("\n", $text);
+
+        // Malzemeleri göstermek için bir liste oluşturun
+        echo '<h3>Malzemeler:</h3>';
+        echo '<ul>';
+        foreach ($ingredients as $ingredient) {
+            $ingredient = trim($ingredient);
+            if (!empty($ingredient)) {
+                echo '<li>' . $ingredient . '</li>';
+            }
+        }
+        echo '</ul>';
+
+        // Kaydedilen text alanını gösterin
+        echo '<h3>Yapılış:</h3>';
+        echo '<p>' . $text . '</p>';
     } else {
         echo 'Kayıt eklenirken bir hata oluştu: ' . mysqli_error($conn);
     }
@@ -103,33 +130,31 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
         $result = mysqli_query($conn, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
-?>
-
-            <div class="card-body" id="">
-                <?php
-                    while ($row = $result->fetch_assoc()) {
-                            
-                        $title = $row['title'];
-                        $text = $row['text'];
-                ?>
-                        <div class="-">
-                            <h2 class="">
-                                    <?=$title?>
-                            </h2>
-                            <div id="" class="" data-bs-parent="">
-                                <div class="">
-                                    <?=$text?>
-                                </div>
-                            </div>
-                            <hr>
-            </div>
-<?php
-                
-                    }
-
-
-        }else
-        {
+            while ($row = $result->fetch_assoc()) {
+                $title = $row['title'];
+                $text = $row['text'];
+        ?>
+                <div class="-">
+                    <h2 class=""><?=$title?></h2>
+                    <div id="" class="" data-bs-parent="">
+                        <ul>
+                            <?php
+                            $ingredients = explode("\n", $text);
+                            foreach ($ingredients as $ingredient) {
+                                $ingredient = trim($ingredient);
+                                if (!empty($ingredient)) {
+                                    echo '<li>' . $ingredient . '</li>';
+                                }
+                            }
+                            ?>
+                        </ul>
+                        
+                    </div>
+                    <hr>
+                </div>
+        <?php
+            }
+        } else {
             echo "There is no available data";
         }
     
@@ -143,7 +168,30 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
 <div class="footer">
         <hr >
           <p style="text-align: center;">contact us | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
-      </div>
+</div>
 
+<script>
+    function addIngredient() {
+        var ingredientInput = document.getElementById("ingredientInput");
+        var ingredientsList = document.getElementById("ingredientsList");
+        var textArea = document.getElementById("text");
+
+        var ingredientText = ingredientInput.value.trim();
+        if (ingredientText !== "") {
+            var listItem = document.createElement("li");
+            listItem.textContent = ingredientText;
+            ingredientsList.appendChild(listItem);
+            ingredientInput.value = "";
+
+            // Malzemeyi 'text' alanına ekleyin
+            var textValue = textArea.value.trim();
+            if (textValue !== "") {
+                textValue += "\n"; // Yeni satır ekle
+            }
+            textValue += "- " + ingredientText;
+            textArea.value = textValue;
+        }
+    }
+</script>
 </body>
 </html>
