@@ -15,6 +15,13 @@
         background: radial-gradient(
         rgba(255, 31, 0, 0.2) 0%, rgba(250, 253, 87, 0.2) 100%), #E9E7B8;
         }
+        table{
+            width:50%;
+        }
+        td{
+            vertical-align: left;
+        }
+       
     </style>
 </head>
 <body>
@@ -34,7 +41,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Veritabanı bağlantısı başarısız: " . $conn->connect_error);
 }
-
+//Tarif için gerekli malzemeleri ve tarifi ekleme,kaydetme
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
    <div class="mb-3"> 
@@ -122,10 +129,23 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
         die("Veritabanı bağlantısı başarısız: " . $conn->connect_error);
     }
     else{
+        session_start();
 
-        // İlgili kaydı veritabanından çekmek için gerekli sorguyu oluşturun
+        // Oturum kontrolü yapma
+        if (!isset($_SESSION['user'])) {
+            header('Location: login.php');
+            exit;
+        }
+
+        // Kullanıcı bilgilerini almak
+        $user = $_SESSION['user'];
+
+
+       
+
+     
+         // İlgili kaydı veritabanından çekmek için gerekli sorguyu oluşturun
         $query = "SELECT * FROM recepies WHERE category = $category";
-
         // Sorguyu veritabanında çalıştırın ve sonucu alın
         $result = mysqli_query($conn, $query);
 
@@ -134,22 +154,44 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
                 $title = $row['title'];
                 $text = $row['text'];
         ?>
-                <div class="-">
-                    <h2 class=""><?=$title?></h2>
-                    <div id="" class="" data-bs-parent="">
-                        <ul>
+                <div >
+                    <table class="table table-borderless" >
+                        <tr >
+                            <td><?=$title?></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
                             <?php
                             $ingredients = explode("\n", $text);
                             foreach ($ingredients as $ingredient) {
                                 $ingredient = trim($ingredient);
                                 if (!empty($ingredient)) {
-                                    echo '<li>' . $ingredient . '</li>';
+                                    ?>
+                                <tr>
+                                    <td name="item"><?=$ingredient?></td>
+                                    <td>
+                                <?php if (strpos($ingredient, '-') === 0): ?>
+                                    <form action="addList.php" method="POST">
+                                        <input type="hidden" name="ingredient" value="<?=$ingredient?>">
+                                        <input type="hidden" name="user_id" value="<?=$user_id?>">
+                                        <button class="btn-outline-danger" type="submit" name="addList">ekle</button>
+                                    </form>
+                            
+                                <?php endif; ?>
+                                </td>
+                                </tr> 
+                                
+                                <?php
                                 }
                             }
                             ?>
-                        </ul>
-                        
-                    </div>
+                            </td>
+                            
+                            
+                        </tr>
+
+                    </table>
                     <hr>
                 </div>
         <?php
@@ -192,6 +234,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
             textArea.value = textValue;
         }
     }
+
 </script>
 </body>
 </html>
