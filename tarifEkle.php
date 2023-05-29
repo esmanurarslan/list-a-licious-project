@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="mainPage.css">
+    <link rel="stylesheet" href="tarifler.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
 
     <title>Document</title>
@@ -134,24 +135,35 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
                 $title = $row['title'];
                 $text = $row['text'];
         ?>
-                <div class="-">
-                    <h2 class=""><?=$title?></h2>
-                    <div id="" class="" data-bs-parent="">
-                        <ul>
-                            <?php
-                            $ingredients = explode("\n", $text);
-                            foreach ($ingredients as $ingredient) {
+                <div class="tarif-box">
+                    
+                    <h2 class="tarif-adi"><?=$title?></h2>
+                    <div id="" class="tarif-bilgi" data-bs-parent="">
+                        <div class="malzeme">
+                            <ul>
+                                <li>süt</li>
+                                <li>ekmek</li>
+                                <li>şeker</li>
+                            </ul>
+                        </div>
+                        <div class="yonelge">
+                            <ul>
+                                <?php
+                                $ingredients = explode("\n", $text);
+                                foreach ($ingredients as $ingredient) {
                                 $ingredient = trim($ingredient);
-                                if (!empty($ingredient)) {
+                                    if (!empty($ingredient)) {
                                     echo '<li>' . $ingredient . '</li>';
                                 }
                             }
                             ?>
                         </ul>
-                        
+                        </div>
                     </div>
                     <hr>
                 </div>
+                <div class="tarif-listesi">
+
         <?php
             }
         } else {
