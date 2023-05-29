@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
    <div class="mb-3"> 
         <form method="POST" >
-        
+          <div class="ekle-box">
             <label for="title" class="form-label">Başlık:</label>
             <input type="text" class="form-control" id="title" name="title" required><br>
 
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
             
             <button type="submit" class="btn btn-primary mb-3">Kaydet</button>
-       
+          </div>
         </form>
     </div>
 <?php
