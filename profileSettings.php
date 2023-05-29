@@ -14,7 +14,7 @@
 
 
     <header>
-    <h1 style="font-size: 200px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Profil Ayarları</h1>
+    <h1 style="font-size: 100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Profil Ayarları</h1>
     </header>
     <?php 
         session_start();

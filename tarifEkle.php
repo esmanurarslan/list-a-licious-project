@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="mainPage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+
     <title>Document</title>
     <style>
             body{
@@ -16,6 +18,8 @@
     </style>
 </head>
 <body>
+<h1 style="font-size:100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Tarif Eke</h1>
+
 <?php
 
 // Veritabanı bağlantısı
@@ -136,5 +140,10 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
     
 // Diğer gerekli işlemler ve sayfa içeriği
 ?>
+<div class="footer">
+        <hr >
+          <p style="text-align: center;">contact us | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
+      </div>
+
 </body>
 </html>
