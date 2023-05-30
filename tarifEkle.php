@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <br>
             
             <label for="text" class="form-label">Yapılış:</label>
-            <textarea id="text" class="form-control" name="text" required></textarea>
+            <textarea id="text" class="form-control" rows="10" name="text" required></textarea>
             
 
             <select id="category" name="category"  required>
@@ -105,26 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result) {
         echo 'Kayıt başarıyla eklendi.';
-        // Eklenen kaydın ID'sini alın
-        $recepiesId = mysqli_insert_id($conn);
-
-        // Malzemeleri alın
-        $ingredients = explode("\n", $text);
-
-        // Malzemeleri göstermek için bir liste oluşturun
-        echo '<h3>Malzemeler:</h3>';
-        echo '<ul>';
-        foreach ($ingredients as $ingredient) {
-            $ingredient = trim($ingredient);
-            if (!empty($ingredient)) {
-                echo '<li>' . $ingredient . '</li>';
-            }
-        }
-        echo '</ul>';
-
-        // Kaydedilen text alanını gösterin
-        echo '<h3>Yapılış:</h3>';
-        echo '<p>' . $text . '</p>';
+        
     } else {
         echo 'Kayıt eklenirken bir hata oluştu: ' . mysqli_error($conn);
     }

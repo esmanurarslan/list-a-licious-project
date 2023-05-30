@@ -49,7 +49,7 @@ $result = $conn->query($sql);
     <label for="item">Listeye ürün ekle:</label>
     <input type="text" id="item" name="item">
     <button type="submit" name="add">Ekle</button>
-    <button type="submit" name="save">Kaydet</button>
+   
   </form>
   
   <ul id="shopping-list">
