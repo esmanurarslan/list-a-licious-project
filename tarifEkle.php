@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="mainPage.css">
+    <link rel="stylesheet" href="tarifler.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
 
     <title>Document</title>
@@ -20,6 +21,18 @@
         }
         td{
             vertical-align: left;
+        }
+        .box{
+            position: relative;
+            width:50%;
+            height:auto;
+            background-color: white;
+            border-radius:8px;
+            overflow:hidden;
+            margin-left:2%; 
+            margin-top:4%;
+            margin-block: 10px 20px;
+            writing-mode: horizontal-tb;"
         }
        
     </style>
@@ -46,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
    <div class="mb-3"> 
         <form method="POST" >
-        
+          <div class="ekle-box">
             <label for="title" class="form-label">Başlık:</label>
             <input type="text" class="form-control" id="title" name="title" required><br>
 
@@ -73,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
             
             <button type="submit" class="btn btn-primary mb-3">Kaydet</button>
-       
+          </div>
         </form>
     </div>
 <?php
@@ -153,13 +166,15 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
             while ($row = $result->fetch_assoc()) {
                 $title = $row['title'];
                 $text = $row['text'];
-        ?>
-                <div >
+        ?><div>
+                <div class="box" >
                     <table class="table table-borderless" >
                         <tr >
-                            <td><?=$title?></td>
+                            <td><h2><?=$title?></h2></td>
+                            
                             
                         </tr>
+                        <tr><td>Malzemeler</td></tr>
                         <tr>
                             <td>
                             <?php
@@ -175,12 +190,15 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
                                     <form action="addList.php" method="POST">
                                         <input type="hidden" name="ingredient" value="<?=$ingredient?>">
                                         <input type="hidden" name="user_id" value="<?=$user_id?>">
-                                        <button class="btn-outline-danger" type="submit" name="addList">ekle</button>
-                                    </form>
+                                        <button class="btn-outline-danger " type="submit" name="addList">ekle</button>
+                                    </form></td></tr> 
+                                    <tr><td><?php elseif((strpos($ingredient, '-') !== 0)): ?>
+                                    Tarifin yapılışı:<br> <?=$ingredient?>
                             
-                                <?php endif; ?>
-                                </td>
-                                </tr> 
+                                <?php endif; ?></td></tr>
+                                
+                                
+                                
                                 
                                 <?php
                                 }
@@ -192,8 +210,11 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
                         </tr>
 
                     </table>
-                    <hr>
+                    
                 </div>
+                
+             </div>   
+
         <?php
             }
         } else {

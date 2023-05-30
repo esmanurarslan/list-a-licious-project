@@ -7,6 +7,7 @@
     <title>Profil Ayarları | EcoShop</title>
     <link rel="stylesheet" href="profileSettings.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+    
 
 </head>
 
@@ -83,9 +84,9 @@
 
 
 
-    <div class="footer">
-      <hr >
-        <p style="text-align: center;">contact us | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
-    </div>
+      <div class="footer" >
+        <hr >
+          <p style="text-align: center;font-family:'Inter'">contact us | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
+      </div>
 </body>
 </html>

@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         VALUES ('$item', '$user[id]')";
         if ($conn->query($sql) === TRUE) {
             
-                echo '<script>
+                echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
                     alert("Ürün başarıyla eklendi!");
                 </script>';
         

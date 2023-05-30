@@ -56,7 +56,7 @@ $result = $conn->query($sql);
     <?php
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<li>" . $row["items"] . "<a href='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "?delete=" . $row["items"] . "' class='delete-item'>×</a></li>";
+            echo "<li>" . $row["items"] . "<a class='delete-item'>×</a></li>";
         }
     } else {
         echo "<li>Liste boş.</li>";
@@ -67,6 +67,8 @@ $result = $conn->query($sql);
         <hr >
           <p style="text-align: center;">contact us | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
       </div>
+
+      
 </body>
 </html>
 
@@ -75,12 +77,15 @@ $result = $conn->query($sql);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["add"])) {
         $item = $_POST["item"]; // Formdaki ürün adı alanından değeri al
+        header("Refresh:0");
+         
         
         // Veritabanına ekleme işlemi
         $sql = "INSERT INTO myList (items, account_id)
         VALUES ('$item', '$user[id]')";
         if ($conn->query($sql) === TRUE) {
-            echo "Ürün başarıyla eklendi.";
+          
+           
         } else {
             echo "Hata: " . $sql . "<br>" . $conn->error;
         }
