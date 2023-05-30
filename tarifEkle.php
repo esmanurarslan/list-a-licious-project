@@ -26,8 +26,10 @@
             position: relative;
             width:50%;
             height:auto;
-            background-color: white;
-            border-radius:8px;
+            background-color: $orange-300;
+            border:1px lightgray solid;
+            box-shadow:5px 5px 15px lightgray;
+            border-radius:30px;
             overflow:hidden;
             margin-left:2%; 
             margin-top:4%;
@@ -38,7 +40,7 @@
     </style>
 </head>
 <body>
-<h1 style="font-size:100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Tarif Eke</h1>
+<h1 style="font-size:100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Tarif Ekle</h1>
 
 <?php
 
@@ -172,42 +174,43 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['category'])) {
                         <tr >
                             <td><h2><?=$title?></h2></td>
                             
-                            
                         </tr>
-                        <tr><td>Malzemeler</td></tr>
                         <tr>
-                            <td>
+                            <td>Malzemeler</td>
+                        </tr>
+                        
                             <?php
                             $ingredients = explode("\n", $text);
                             foreach ($ingredients as $ingredient) {
                                 $ingredient = trim($ingredient);
                                 if (!empty($ingredient)) {
                                     ?>
-                                <tr>
-                                    <td name="item"><?=$ingredient?></td>
-                                    <td>
-                                <?php if (strpos($ingredient, '-') === 0): ?>
-                                    <form action="addList.php" method="POST">
-                                        <input type="hidden" name="ingredient" value="<?=$ingredient?>">
-                                        <input type="hidden" name="user_id" value="<?=$user_id?>">
-                                        <button class="btn-outline-danger " type="submit" name="addList">ekle</button>
-                                    </form></td></tr> 
-                                    <tr><td><?php elseif((strpos($ingredient, '-') !== 0)): ?>
-                                    Tarifin yapılışı:<br> <?=$ingredient?>
+                                    <tr>
+                                    
+                                        <?php if (strpos($ingredient, '-') === 0): ?>
+                                            <td>
+                                                <form action="addList.php" method="POST">
+                                                    <input  name="ingredient" value="<?=$ingredient?>">
+                                                    <input type="hidden" name="user_id" value="<?=$user_id?>">
+                                                    
+                                                    <button class="btn-outline-danger " type="submit" name="addList">ekle</button>
+                                                </form>
+                                            </td>
+                                        <?php elseif((strpos($ingredient, '-') !== 0)): ?>
+                                            <td>Tarifin yapılışı: <?=$ingredient?></td> 
                             
-                                <?php endif; ?></td></tr>
+                                        <?php endif; ?>
                                 
+                                    </tr> 
                                 
-                                
-                                
-                                <?php
+                                    <?php
                                 }
                             }
                             ?>
-                            </td>
                             
                             
-                        </tr>
+                            
+                        
 
                     </table>
                     
