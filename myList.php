@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 }
 
 // Veritabanından liste verilerini çekme
-$sql = "SELECT items FROM myList WHERE account_id = '$user[id]'";
+$sql = "SELECT items,account_id FROM myList WHERE account_id = '$user[id]'";
 $result = $conn->query($sql);
 
 ?>
@@ -30,10 +30,10 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EcoShop | Listelerim</title>
+  <title>EcoShop | Listem</title>
   <style>
     h1 {
-      font-size: 200px;
+     
       font-weight: lighter;
     }
     
@@ -41,9 +41,11 @@ $result = $conn->query($sql);
   <link rel="stylesheet" href="myList.css">
   <link rel="stylesheet" href="default.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
 <body>
-<h1 style="font-size:100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Alışveriş Listem</h1>
+<h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Listem</h1>
  
   <form id="add-item-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
     <label for="item">Listeye ürün ekle:</label>
@@ -55,8 +57,11 @@ $result = $conn->query($sql);
   <ul id="shopping-list">
     <?php
     if ($result->num_rows > 0) {
+      
         while ($row = $result->fetch_assoc()) {
-            echo "<li>" . $row["items"] . "<a class='delete-item'>×</a></li>";
+          echo "<li>" . $row["items"] . "<a href='delete.php?item=" . $row["items"] . "'>×</a></li>";
+
+
         }
     } else {
         echo "<li>Liste boş.</li>";
@@ -80,29 +85,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Refresh:0");
          
         
+
+
         // Veritabanına ekleme işlemi
-        $sql = "INSERT INTO myList (items, account_id)
-        VALUES ('$item', '$user[id]')";
+        $sql = "INSERT INTO myList (items,account_id)
+        SELECT '$item', '$user[id]'
+        WHERE NOT EXISTS (
+          SELECT 1
+          FROM myList
+          WHERE items = '$item' AND account_id = '$user[id]'
+        )";
         if ($conn->query($sql) === TRUE) {
           
            
         } else {
-            echo "Hata: " . $sql . "<br>" . $conn->error;
+            echo "Ürün listede mevcut";
         }
-    } elseif (isset($_POST["save"])) {
-        // Tüm listeyi kaydetme işlemi
-        $listItems = $_POST["listItems"]; // Hidden input ile gizli olarak gönderilen liste öğelerini al
-        
-        // Her bir öğeyi myList tablosuna eklemek için döngü
-        foreach ($listItems as $item) {
-            $item = $conn->real_escape_string($item); // Güvenlik için veri temizleme
-            $sql = "INSERT INTO myList (items, account_id)
-            VALUES ('$item', '$user[id]')";
-            $conn->query($sql);
-        }
-        
-        echo "Liste başarıyla kaydedildi.";
-    }
+    } 
 }
 
 $conn->close();
