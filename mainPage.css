@@ -8,46 +8,41 @@ header{
     margin-left: auto;
     margin-right: auto;
     font-family: 'Inter';
-    font-size: 100px;
+    font-size: 150px;
     font-weight: lighter;
     text-align: center;
     margin-top: 5%;
    
 }
-.container{
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        margin-top: 50px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100em;
-        margin-bottom: 50px;
-        
-      }
-
-.box{
-    background-color:wheat;
-    float: left;
-    margin: 7%;
-    position: relative;
+.box {
+    background-color: rgb(234, 207, 189);
     width: 500px;
     height: 540px;
-    background: transparent;
+    margin: 7%;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-    justify-content: center;
-    align-items: center;
     display: flex;
 }
-.box .login-box{
-    width: 100%;
+
+.box .login-box, .box .singUp-box {
+    width: 50%;
     padding: 40px;
 }
 
-.box .singUp-box{
-    width: 100%;
-    padding: 40px;
+.box .login-box {
+    float: left;
+}
+
+.box .singUp-box {
+    float: right;
 }
 
 .login-box h2 {
