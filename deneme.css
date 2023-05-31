@@ -17,9 +17,9 @@
   
   header{
     font-family: 'Inter';
-    font-size: 200px;
+    font-size: 150px;
     text-align: center;
-    margin: 7%;
+    margin: 5%;
 }
   /* CONTAINER FOR ALL CARDS */
   .cards-container {
