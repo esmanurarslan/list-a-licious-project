@@ -9,26 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <style>
-     .container {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 2px solid rgba(255, 255, 255, .5);
-        border-radius: 20px;
-        background: transparent;
-        backdrop-filter: blur(20px);
-        box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-        margin-bottom: 50px;
-        margin-top: 50px;
-      }
-      input[type="text"], input[type="password"] {
-      width: 100%;
-      background: transparent;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: none;
-      outline: none;
-      
+    .container{
+      width: 35%;
     }
   </style>
     
@@ -52,6 +34,7 @@
     ?>
       
       <div class="container"> 
+        
         <h2>Kullanıcı Bilgileri</h2>
         <form method="POST" action="parolaDegis.php">
 
@@ -102,8 +85,8 @@
 
         </div>
 
-
       </div>
+      
 
 
 
