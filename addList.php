@@ -33,8 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         header("Location: showRecepie.php?category=" . urlencode($category));
         
-
-        
         // Veritabanına ekleme işlemi
         $sql = "INSERT INTO myList (items,account_id)
             SELECT '$item', '$user[id]'

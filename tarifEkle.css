@@ -1,0 +1,22 @@
+
+            
+table{
+    width:50%;
+}
+td{
+    vertical-align: left;
+}
+.ekle-box{
+    margin-bottom: 15%;
+}
+
+.center-button {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+
+} 
+.mesaj{
+    margin-bottom: 3%;
+}

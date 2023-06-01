@@ -6,42 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="mainPage.css">
     <link rel="stylesheet" href="tarifler.css">
+    <link rel="stylesheet" href="tarifEkle.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <title>Document</title>
    
-    <style>
-            
-        table{
-            width:50%;
-        }
-        td{
-            vertical-align: left;
-        }
-        .box{
-            position: relative;
-            --angle:0deg;
-            width:50%;
-            height:auto;
-            
-            border:10px  solid;
-            
-            border-radius:30px;
-          
-            margin-left:2%; 
-            margin-top:4%;
-            margin-block: 10px 20px;
-            writing-mode: horizontal-tb;"
-            border-image:linear-gradient(var(--angle),#54E6E7,#9EDFD3,#AAC6C6)1;
-            animation: 2s rotate linear infinite;
-        }
 
-        .center-button {
-        display: flex;
-        justify-content: center;
-    }  
-    </style>
 </head>
 <body>
 <h1 style="font-size:100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Tarif Ekle</h1>
@@ -72,7 +43,8 @@
                 <option value='7'>Sebze Yemekleri</option>
             </select>
             <div class="center-button">
-            <button type="submit" class="btn btn-primary mb-3" name="kaydet">Kaydet</button>
+            <button type="submit" class="btn btn-primary mb-3" name="kaydet" style="margin-inline: auto;">Kaydet</button>
+            <div class="mesaj">
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Veritabanı bağlantısı yapılır (veritabanı bilgilerini güncellemeniz gerekebilir)
@@ -106,6 +78,7 @@
                     $conn->close();
                 }
             ?>
+            </div>
             </div>
         </div>
         </form>

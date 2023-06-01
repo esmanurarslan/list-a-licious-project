@@ -126,9 +126,10 @@ if ($result && mysqli_num_rows($result) > 0) {
                                 
                         <?php if (strpos($ingredient, '-') === 0): ?>
                         <td>
-                            <form action="addList.php" method ="POST">
+                            <form action="addList.php?category=<?=urlencode($category)?>" method ="POST">
                                 <input  name="ingredient" value="<?=$ingredient?>">
                                 <input type="hidden" name="user_id" value="<?=$user_id?>">
+                                
                                             
                                 <button class="btn-outline-danger " type="submit" name="addList">ekle</button>
                             </form>
