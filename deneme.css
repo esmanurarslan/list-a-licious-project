@@ -41,6 +41,7 @@
     border-radius: 20px;
     perspective: 1000px;
     background-color: transparent;
+    overflow: hidden;
   }
   
   .flip-card-inner {

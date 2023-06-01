@@ -50,18 +50,21 @@ $result = $conn->query($sql);
         td{
             vertical-align: left;
         }
+
         .box{
             position: relative;
             --angle:0deg;
             width:50%;
             height:auto;
-            
-            border:10px  solid;
-            
+            border:10px  solid rgba(255, 255, 255, .5);;
             border-radius:30px;
-          
-            margin-left:2%; 
-            margin-top:4%;
+            background: transparent;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+            overflow: hidden;
+            margin-top:7%;
+            margin-left: auto;
+            margin-right: auto;
             margin-block: 10px 20px;
             writing-mode: horizontal-tb;"
             border-image:linear-gradient(var(--angle),#54E6E7,#9EDFD3,#AAC6C6)1;

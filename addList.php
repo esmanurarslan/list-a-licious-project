@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $item=ltrim($item, '-');
         
         header("Location: showRecepie.php?category=" . urlencode($category));
+        
 
         
         // Veritabanına ekleme işlemi
