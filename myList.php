@@ -46,14 +46,15 @@ $result = $conn->query($sql);
 </head>
 <body>
 <h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Listem</h1>
- 
+ <div>
   <form id="add-item-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
     <label for="item">Listeye ürün ekle:</label>
     <input type="text" id="item" name="item">
     <button type="submit" name="add">Ekle</button>
    
   </form>
-  
+  </div>
+  <div>
   <ul id="shopping-list">
     <?php
     if ($result->num_rows > 0) {
@@ -68,6 +69,7 @@ $result = $conn->query($sql);
     }
     ?>
   </ul>
+  </div>
   <div class="footer">
         <hr >
           <p style="text-align: center;">contact us | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
