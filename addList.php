@@ -27,12 +27,21 @@ $result = $conn->query($sql);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["addList"])) {
+        $category = $_GET['category'];
         $item = $_POST["ingredient"]; // Tablodaki ürün adı alanından değeri al
         $item=ltrim($item, '-');
         
+        header("Location: showRecepie.php?category=" . urlencode($category));
+
+        
         // Veritabanına ekleme işlemi
-        $sql = "INSERT INTO myList (items, account_id)
-        VALUES ('$item', '$user[id]')";
+        $sql = "INSERT INTO myList (items,account_id)
+            SELECT '$item', '$user[id]'
+            WHERE NOT EXISTS (
+            SELECT 1
+            FROM myList
+            WHERE items = '$item' AND account_id = '$user[id]'
+            )";
         if ($conn->query($sql) === TRUE) {
             
                 echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
