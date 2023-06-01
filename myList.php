@@ -38,7 +38,8 @@ $result = $conn->query($sql);
     }
     
   </style>
-  <link rel="stylesheet" href="myList.css">
+
+  <link rel="stylesheet" href="myListt.css">
   <link rel="stylesheet" href="default.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -54,7 +55,7 @@ $result = $conn->query($sql);
    
   </form>
   </div>
-  <div>
+  <div class="shoplist">
   <ul id="shopping-list">
     <?php
     if ($result->num_rows > 0) {
