@@ -46,7 +46,7 @@ form {
    display: flex;
    align-items: center;
    justify-content: space-between;
-   overflow: hidden;
+   
    margin-bottom: 10px;
  }
  #shopping-list li:last-child {
