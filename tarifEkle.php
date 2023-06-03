@@ -17,23 +17,25 @@
 <body>
 <h1 style="font-size:100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Tarif Ekle</h1>
 
-   <div class="mb-3 "> 
-        <form method="POST">
+<div class="mb-3">
+    <form method="POST">
         <div class="ekle-box">
-            <label for="title" class="form-label">Başlık:</label>
-            <input type="text" class="form-control" name="title" required>
+            <label for="title" class="form-label">Başlık:</label><br>
+            <input type="text" class="form-control" name="title" required><br>
+            <input type="hidden" id="ingredientListInput" name="ingredientListInput" value="">
+            <ul id="ingredientsList" name="ingredientsList"></ul>
 
-            <ul id="ingredientsList"></ul>
+            <label for="ingredientAmount" class="form-label">Malzeme Miktarı:</label>
+            <input type="text" class="form-control" id="ingredientAmount">
+            <label for="ingredientName" class="form-label">Malzeme Adı:</label>
+            <input type="text" class="form-control" id="ingredientName">
 
-            <label for="text" class="form-label">Malzemeler ve Yapılışı:</label>
-            <textarea id="text" class="form-control" rows="10" name="text" required></textarea>
-            <script>
-            var placeholderText = "Lütfen malzemeleri önlerine '-' işareti koyarak ve alt alta yazınız.Daha sonra alt paragrafa yapılışını ekleyiniz.";
-            document.getElementById('text').setAttribute('placeholder', placeholderText);
-            </script>
+            <button type="button" class="btn btn-primary mb-3" onclick="addIngredient()">Ekle</button><br><br><br>
 
-            <select id="category" name="category" required >
+            <label for="text" class="form-label">Malzemeler ve Yapılışı:</label><br>
+            <textarea id="text" class="form-control" rows="10" name="text" required></textarea><br>
             
+            <select id="category" name="category" required>
                 <option value='1'>Aperatifler</option>
                 <option value='2'>Çorbalar</option>
                 <option value='3'>Et Yemekleri</option>
@@ -42,9 +44,11 @@
                 <option value='6'>Tatlılar</option>
                 <option value='7'>Sebze Yemekleri</option>
             </select>
+            
+
             <div class="center-button">
-            <button type="submit" class="btn btn-primary mb-3" name="kaydet" style="margin-inline: auto;">Kaydet</button>
-            <div class="mesaj">
+                <button type="submit" class="btn btn-primary mb-3" name="kaydet" style="margin-inline: auto;">Kaydet</button>
+                <div class="mesaj">
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Veritabanı bağlantısı yapılır (veritabanı bilgilerini güncellemeniz gerekebilir)
@@ -61,11 +65,17 @@
                     if (isset($_POST["kaydet"])){
                         // Formdan gelen verileri al
                         $title = isset($_POST["title"]) ? $_POST["title"] : '';
+                       
+                        $ingredientsListInput = isset($_POST["ingredientListInput"]) ? $_POST["ingredientListInput"] : '';
+                        $ingredientsList = explode(",", $ingredientsListInput);
+                        $ingredientsListText = implode("\n", $ingredientsList);
+
+
                         $text = isset($_POST["text"]) ? $_POST["text"] : '';
                         $category = isset($_POST["category"]) ? $_POST["category"] : '';
 
                         // Veriler veritabanına eklenir
-                        $sql = "INSERT INTO recepies (title, text, category) VALUES ('$title', '$text', '$category')";
+                        $sql = "INSERT INTO recepies (title, ingredientsList,text, category) VALUES ('$title','$ingredientsListText','$text', '$category')";
 
                         if ($conn->query($sql) === TRUE) {
                             echo "Veriler başarıyla kaydedildi";
@@ -81,35 +91,33 @@
             </div>
             </div>
         </div>
-        </form>
+    </form>
+</div>
 
-    </div>
-    <script>
+<script>
     function addIngredient() {
-        var ingredientInput = document.getElementById("ingredientInput");
-        
-        var ingredientsList = document.getElementById("ingredientsList");
-        var textArea = document.getElementById("text");
+        var amount = document.getElementById('ingredientAmount').value;
+        var name = document.getElementById('ingredientName').value;
 
-        var ingredientText = ingredientInput.value.trim();
-        if (ingredientText !== "") {
-            var listItem = document.createElement("li");
-            listItem.textContent = ingredientText;
-            ingredientsList.appendChild(listItem);
-            ingredientInput.value = "";
+        if (amount !== "" && name !== "") {
+            var ingredient = document.createElement('li');
+            ingredient.innerText = amount + ' - ' + name;
 
-            // Malzemeyi 'text' alanına ekleyin
-            var textValue = textArea.value.trim();
-            if (textValue !== "") {
-                textValue += "\n"; // Yeni satır ekle
-            }
-            textValue += "- " + ingredientText;
-            textArea.value = textValue;
+            document.getElementById('ingredientsList').appendChild(ingredient);
+
+            // Update hidden input value
+            var ingredientListInput = document.getElementById('ingredientListInput');
+            var currentList = ingredientListInput.value;
+            var updatedList = currentList + ',' + amount + ' - ' + name;
+            ingredientListInput.value = updatedList;
+
+            // Clear the input fields
+            document.getElementById('ingredientAmount').value = "";
+            document.getElementById('ingredientName').value = "";
         }
     }
-       
 </script>
-    
+
 
 
 

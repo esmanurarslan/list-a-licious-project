@@ -28,8 +28,9 @@ $result = $conn->query($sql);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["addList"])) {
         $category = $_GET['category'];
-        $item = $_POST["ingredient"]; // Tablodaki ürün adı alanından değeri al
-        $item=ltrim($item, '-');
+        $item = $_POST["ingredientListInput"]; // Tablodaki ürün adı alanından değeri al
+        $parts = explode("-", $item);
+        $item = trim(end($parts));
         
         header("Location: showRecepie.php?category=" . urlencode($category));
         

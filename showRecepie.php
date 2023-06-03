@@ -37,6 +37,11 @@ $result = $conn->query($sql);
 <html>
 <head>
   <title>EcoShop | Listem</title>
+  <link rel="stylesheet" href="style/mainPage.css">
+    <link rel="stylesheet" href="style/tarifler.css">
+    <link rel="stylesheet" href="style/tarifEkle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <style>
     h1 {
      
@@ -103,6 +108,8 @@ $result = $conn->query($sql);
 if ($result && mysqli_num_rows($result) > 0) {
             while ($row = $result->fetch_assoc()) {
                 $title = $row['title'];
+                $ingredientsList = $row["ingredientsList"];
+                $ingredients = explode("\n", $ingredientsList);
                 $text = $row['text'];
         ?>
         <div>
@@ -117,35 +124,38 @@ if ($result && mysqli_num_rows($result) > 0) {
                     </tr>
                         
                         <?php
-                        $ingredients = explode("\n", $text);
+                        
                         foreach ($ingredients as $ingredient) {
                             $ingredient = trim($ingredient);
                             if (!empty($ingredient)) {
                                 ?>
                     <tr>
                                 
-                        <?php if (strpos($ingredient, '-') === 0): ?>
+                        
                         <td>
                             <form action="addList.php?category=<?=urlencode($category)?>" method ="POST">
-                                <input  name="ingredient" value="<?=$ingredient?>">
+                                <input  name="ingredientListInput" value="<?=$ingredient?>">
+                                
                                 <input type="hidden" name="user_id" value="<?=$user_id?>">
                                 
                                             
                                 <button class="btn-outline-danger " type="submit" name="addList">ekle</button>
                             </form>
                         </td>
-                        <?php elseif((strpos($ingredient, '-') !== 0)): ?>
-                        <td>Tarifin yapılışı: <?=$ingredient?></td> 
+                        
+                         
                     
-                        <?php endif; ?>      
+                        
                                        
                                     
                     </tr> 
+                    
                             
                                 <?php
                             }
-                        }
-                        ?>
+                        }?>
+                    <tr><td>Tarifin yapılışı: <?=$text?></td></tr>
+                        
                             
                             
                             
