@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Ayarları | EcoShop</title>
     <link rel="stylesheet" href="style/profileSettings.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <style>
     .container{
       width: 35%;
     }
+    .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 5%;
+    padding-top: 5%;
+    font-family: 'Inter';
+}
   </style>
     
 
@@ -88,12 +97,13 @@
       </div>
       
 
-
-
-
-      <div class="footer" >
+      <div class="footer">
         <hr >
-          <p style="text-align: center;font-family:'Inter'">contact us | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
+          <p style="text-align: center;">contact us | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
       </div>
+
+
+
+      
 </body>
 </html>

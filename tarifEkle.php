@@ -29,10 +29,10 @@
             <input type="text" class="form-control" id="ingredientAmount">
             <label for="ingredientName" class="form-label">Malzeme Adı:</label>
             <input type="text" class="form-control" id="ingredientName">
-
-            <button type="button" class="btn btn-primary mb-3" onclick="addIngredient()">Ekle</button><br><br><br>
-
-            <label for="text" class="form-label">Malzemeler ve Yapılışı:</label><br>
+            <div class="center-button">
+                <button type="button" class="btn btn-primary mb-3" style="margin-inline: auto;" onclick="addIngredient()">Ekle</button><br><br>
+            </div>
+            <label for="text" class="form-label">Tarifin Yapılışı:</label><br>
             <textarea id="text" class="form-control" rows="10" name="text" required></textarea><br>
             
             <select id="category" name="category" required>
