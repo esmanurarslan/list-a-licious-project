@@ -36,13 +36,17 @@ $result = $conn->query($sql);
      
       font-weight: lighter;
     }
+    a{
+      color: rgb(54, 1, 92);
+    }
     b{
       font-size: 150px; 
       font-weight:lighter ;
       font-family:'Inter';
-      color: #00008B;
-      text-shadow: 2px 2px 1px #6495ED, 4px 4px 1px #ADD8E6;
+      color:rgb(54, 1, 92);
+      text-shadow: 2px 2px 1px #d47e37, 4px 4px 1px #d1a582;
     }
+    
     
   </style>
 
@@ -53,7 +57,7 @@ $result = $conn->query($sql);
 
 </head>
 <body>
-<h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">list<b>A</b>licious</a> | Listem</h1>
+<h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;color: rgb(54, 1, 92);">list<b>A</b>licious</a> | Listem</h1>
  <div>
   <form id="add-item-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
     <label for="item">Listeye ürün ekle:</label>

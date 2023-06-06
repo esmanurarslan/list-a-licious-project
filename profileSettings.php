@@ -25,8 +25,8 @@
       font-size: 130px;
       font-weight:lighter ;
       font-family:'Inter';
-      color: #00008B;
-      text-shadow: 2px 2px 1px #6495ED, 4px 4px 1px #ADD8E6;
+      color:rgb(54, 1, 92);
+      text-shadow: 2px 2px 1px #d47e37, 4px 4px 1px #d1a582;
     }
 
   </style>
@@ -38,7 +38,7 @@
 
 
     <header>
-    <h1 style="font-size: 100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">list<b>A</b>licious</a> | Profil Ayarları</h1>
+    <h1 style="font-size: 100px; font-family:'Inter';font-weight:lighter ; text-align: center;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ; color:rgb(54, 1, 92);">list<b>A</b>licious</a> | Profil Ayarları</h1>
     </header>
     <?php 
         session_start();

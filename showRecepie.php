@@ -48,11 +48,11 @@ $result = $conn->query($sql);
       font-weight: lighter;
     }
     b{
-        font-size: 150px; 
+        font-size: 100px; 
         font-weight:lighter ;
         font-family:'Inter';
-        color: #00008B;
-        text-shadow: 2px 2px 1px #6495ED, 4px 4px 1px #ADD8E6;
+        color:rgb(54, 1, 92);
+        text-shadow: 1px 1px 1px #d47e37, 2px 2px 1px #d1a582;
     }
 
             
@@ -128,7 +128,7 @@ if ($category == 1) {
 ?>
 
 
-<h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">list<b>A</b>licious</a> | <?=$category?></h1>
+<h1 style="font-size:80px; font-family:'Inter';font-weight:lighter ;text-align: center;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ; color:rgb(54, 1, 92);">list<b>A</b>licious</a> | <?=$category?></h1>
  
 <?php 
 if ($result && mysqli_num_rows($result) > 0) {
