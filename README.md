@@ -1,11 +1,11 @@
 #list-a-licous project
 
-#Description of project
+#Description of project<br>
 This project allow you to make a shopping list.<br>
 You can find new recipes and if you can create and add new recipes.<br>
 If you want to try new recipes, you can search for recipes by categories. If you don't have some ingredients that should be used in the recipe you decide to make, you can add the items from the recipes page to your shopping list.<br><br>
 
-#setup
+#setup<br>
 1-You need a database. <br>
 We used local database.<br>
 2-create  database that name is 'account'<br>
@@ -48,7 +48,7 @@ We used local database.<br>
 4-Download the necessary code files from github and add them to the htdocs folder to execute on your localhost.<br>
 5-You can now access the working project with the link "http://localhost:8888/...your folder path.../mainPage.html"<br>
 
-#usage
+#usage<br>
 First of all, to create your personal account, type the information required for the sign up section and press the "sign up" button.<br>
 Now you can start using it by entering your information correctly.<br>
 	Make shopping list<br>
