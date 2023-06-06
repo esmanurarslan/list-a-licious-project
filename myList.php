@@ -84,7 +84,7 @@ $result = $conn->query($sql);
   </div>
   <div class="footer">
         <hr >
-          <p style="text-align: center;">contact us | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
+          <p style="text-align: center;"><a href="mailto:list-a-licious@example.com" >contact us</a>  | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
       </div>
 
       

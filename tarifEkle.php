@@ -133,7 +133,7 @@
 
 <div class="footer" style="text-align: center;font-family:'Inter';font-weight:lighter ;">
         <hr >
-          <p >contact us | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
+          <p ><a href="mailto:list-a-licious@example.com" >contact us</a>  | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
 </div>
 
     </body>

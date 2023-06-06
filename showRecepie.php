@@ -191,14 +191,20 @@ if ($result && mysqli_num_rows($result) > 0) {
                 </table>
                     
             </div>
+            
                 
-        </div>   
-
+        
         <?php
             }
         } else {
             echo "There is no available data";
         } ?>
+    </div> 
+        <div class="footer" style="font-weight: lighter;">
+                <hr >
+                <p style="text-align: center;"> <a href="mailto:list-a-licious@example.com" >contact us</a> | <span class="circle">&copy;</span> 2023 Es^2 corporation | Bandirma</p>
+         </div>  
+
 </body>
 </html>
 
