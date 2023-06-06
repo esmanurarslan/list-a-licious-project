@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Ayarları | EcoShop</title>
+    <title>Profil Ayarları | listAlicious</title>
     <link rel="stylesheet" href="style/profileSettings.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
@@ -20,7 +20,15 @@
     margin-top: 5%;
     padding-top: 5%;
     font-family: 'Inter';
-}
+    }
+    b{
+      font-size: 130px;
+      font-weight:lighter ;
+      font-family:'Inter';
+      color: #00008B;
+      text-shadow: 2px 2px 1px #6495ED, 4px 4px 1px #ADD8E6;
+    }
+
   </style>
     
 
@@ -30,7 +38,7 @@
 
 
     <header>
-    <h1 style="font-size: 100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Profil Ayarları</h1>
+    <h1 style="font-size: 100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">list<b>A</b>licious</a> | Profil Ayarları</h1>
     </header>
     <?php 
         session_start();

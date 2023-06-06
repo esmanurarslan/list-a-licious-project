@@ -11,11 +11,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <title>Document</title>
+    <style>
+        b{
+            font-size: 130px; 
+            font-weight:lighter ;
+            font-family:'Inter';
+            color: #00008B;
+            text-shadow: 2px 2px 1px #6495ED, 4px 4px 1px #ADD8E6;
+    }
+    </style>
    
 
 </head>
 <body>
-<h1 style="font-size:100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Tarif Ekle</h1>
+<h1 style="font-size:100px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">list<b>A</b>licious</a> | Tarif Ekle</h1>
 
 <div class="mb-3">
     <form method="POST">

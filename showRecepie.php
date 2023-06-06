@@ -36,7 +36,7 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EcoShop | Listem</title>
+  <title>listAlicious | Listem</title>
   <link rel="stylesheet" href="style/mainPage.css">
     <link rel="stylesheet" href="style/tarifler.css">
     <link rel="stylesheet" href="style/tarifEkle.css">
@@ -46,6 +46,13 @@ $result = $conn->query($sql);
     h1 {
      
       font-weight: lighter;
+    }
+    b{
+        font-size: 150px; 
+        font-weight:lighter ;
+        font-family:'Inter';
+        color: #00008B;
+        text-shadow: 2px 2px 1px #6495ED, 4px 4px 1px #ADD8E6;
     }
 
             
@@ -102,7 +109,7 @@ $result = $conn->query($sql);
 
 </head>
 <body>
-<h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Listem</h1>
+<h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">list<b>A</b>licious</a> | Listem</h1>
  
 <?php 
 if ($result && mysqli_num_rows($result) > 0) {

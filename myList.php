@@ -30,11 +30,18 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EcoShop | Listem</title>
+  <title>listAlicious | Listem</title>
   <style>
     h1 {
      
       font-weight: lighter;
+    }
+    b{
+      font-size: 150px; 
+      font-weight:lighter ;
+      font-family:'Inter';
+      color: #00008B;
+      text-shadow: 2px 2px 1px #6495ED, 4px 4px 1px #ADD8E6;
     }
     
   </style>
@@ -46,7 +53,7 @@ $result = $conn->query($sql);
 
 </head>
 <body>
-<h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">EcoShop</a> | Listem</h1>
+<h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">list<b>A</b>licious</a> | Listem</h1>
  <div>
   <form id="add-item-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
     <label for="item">Listeye ürün ekle:</label>
