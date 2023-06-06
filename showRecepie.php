@@ -36,7 +36,7 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 <html>
 <head>
-  <title>listAlicious | Listem</title>
+  <title>listAlicious | <?=$category?></title>
   <link rel="stylesheet" href="style/mainPage.css">
     <link rel="stylesheet" href="style/tarifler.css">
     <link rel="stylesheet" href="style/tarifEkle.css">
@@ -109,7 +109,26 @@ $result = $conn->query($sql);
 
 </head>
 <body>
-<h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">list<b>A</b>licious</a> | Listem</h1>
+<?php
+if ($category == 1) {
+    $category="Aperatifler";
+} elseif ($category == 2) {
+    $category="Çorbalar";
+}elseif ($category == 3) {
+    $category="Et Yemekleri";
+}elseif ($category == 4) {
+    $category="Hamur İşi Tarifleri";
+}elseif ($category == 5) {
+    $category="Salata ve Mezeler";
+}elseif ($category == 6) {
+    $category="Tatlılar";
+}elseif ($category == 7) {
+    $category="Sebze Yemekleri";
+}
+?>
+
+
+<h1 style="font-size:130px; font-family:'Inter';font-weight:lighter ;"><a href="deneme.html" style="text-decoration: none;font-family:'Inter';font-weight:lighter ;">list<b>A</b>licious</a> | <?=$category?></h1>
  
 <?php 
 if ($result && mysqli_num_rows($result) > 0) {
