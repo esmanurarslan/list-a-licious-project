@@ -62,7 +62,7 @@ $result = $conn->query($sql);
   <form id="add-item-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
     <label for="item">Listeye ürün ekle:</label>
     <input type="text" id="item" name="item">
-    <button type="submit" name="add">Ekle</button>
+    <button class="btn btn-primary" style="background-color:#d47e37;border: none; " type="submit" name="add">Ekle</button>
    
   </form>
   </div>

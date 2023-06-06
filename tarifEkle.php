@@ -19,6 +19,12 @@
             color:rgb(54, 1, 92);
             text-shadow: 2px 2px 1px #d47e37, 4px 4px 1px #d1a582;
         }
+        input{
+            width: 90%;
+        }
+        button{
+            width: 90%;
+        }
     </style>
    
 
@@ -28,7 +34,7 @@
 
 <div class="mb-3">
     <form method="POST">
-        <div class="ekle-box">
+        <div class="ekle-box" style="width: 60%">
             <label for="title" class="form-label">Başlık:</label><br>
             <input type="text" class="form-control" name="title" required><br>
             <input type="hidden" id="ingredientListInput" name="ingredientListInput" value="">
@@ -38,8 +44,8 @@
             <input type="text" class="form-control" id="ingredientAmount">
             <label for="ingredientName" class="form-label">Malzeme Adı:</label>
             <input type="text" class="form-control" id="ingredientName">
-            <div class="center-button">
-                <button type="button" class="btn btn-primary mb-3" style="margin-inline: auto;" onclick="addIngredient()">Ekle</button><br><br>
+            <div class="center-button" style="width=50%;">
+                <button type="button" class="btn btn-primary mb-3" style="margin-inline: auto; background-color: #e3922f; border: none;" onclick="addIngredient()">Ekle</button><br><br>
             </div>
             <label for="text" class="form-label">Tarifin Yapılışı:</label><br>
             <textarea id="text" class="form-control" rows="10" name="text" required></textarea><br>
@@ -56,7 +62,7 @@
             
 
             <div class="center-button">
-                <button type="submit" class="btn btn-primary mb-3" name="kaydet" style="margin-inline: auto;">Kaydet</button>
+                <button type="submit" class="btn btn-primary mb-3" name="kaydet" style="margin-inline: auto; background-color: #e3922f; border: none;">Kaydet</button>
                 <div class="mesaj">
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
