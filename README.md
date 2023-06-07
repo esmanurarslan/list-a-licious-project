@@ -23,7 +23,7 @@ We used local database.<br>
 |       |             |              |    |
 <br>
 
-	CREATE TABLE myList (<br>
+	CREATE TABLE myList (
   items varchar(255) DEFAULT NULL,<br>
   account_id int(11) DEFAULT NULL<br>
 	)<br>
@@ -32,7 +32,7 @@ We used local database.<br>
 |-------|------------|
 |       |            |<br>
 
-	CREATE TABLE recepies (<br>
+	CREATE TABLE recepies (
   title varchar(100) DEFAULT NULL,<br>
   ingredientsList text,<br>
   text mediumtext,<br>
