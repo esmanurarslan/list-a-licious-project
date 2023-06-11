@@ -32,8 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $parts = explode("-", $item);
         $item = trim(end($parts));
         
-        header("Location: showRecepie.php?category=" . urlencode($category));
-        
         // Veritabanına ekleme işlemi
         $sql = "INSERT INTO myList (items,account_id)
             SELECT '$item', '$user[id]'
@@ -51,6 +49,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Hata: " . $sql . "<br>" . $conn->error;
         }
+        switch ($category) {
+            case "Aperatifler":$category=1;break;
+            case "Çorbalar":$category=2;break;
+            case "Et Yemekleri":$category=3;break;
+            case "Hamur İşi Tarifleri":$category=4;break;
+            case "Salata ve Mezeler":$category=5;break;
+            case "Tatlılar":$category = 6;break;
+            case "Sebze Yemekleri":$category=7;break;
+            default:
+                // Diğer durumlar için varsayılan değeri kullanabilirsiniz
+                break;
+        }
+        
+        header("Location: showRecepie.php?category=".$category);
+        
     } 
 }
 
